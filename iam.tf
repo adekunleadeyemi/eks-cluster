@@ -59,4 +59,5 @@ resource "aws_iam_role" "s3_bucket_permission" {
     }
   ]
 }
+EOF
 }
