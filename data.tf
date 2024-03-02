@@ -46,3 +46,12 @@ data "aws_iam_policy_document" "generic_endpoint_policy" {
     }
   }
 }
+
+data "terraform_remote_state" "network" {
+  backend = "s3"
+  config = {
+    bucket = "eu-west-2-terraformstate"
+    key    = "${var.environment}/terraform.tfstate"
+    region = "eu-west-2"
+  }
+}
