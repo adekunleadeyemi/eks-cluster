@@ -44,18 +44,18 @@ EOF
 resource "aws_iam_role" "s3_bucket_permission" {
   name = "my-s3-bucket-permission"
   assume_role_policy = <<EOF
-  {
+{
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
       "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::mybucket"
+      "Resource": "arn:aws:s3:::eu-west-2-terraformstate"
     },
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject"],
-      "Resource": "arn:aws:s3:::eu-west-2-terraformstate/${var.environment}/terraform.tfstate"
+      "Resource": "arn:aws:s3:::eu-west-2-terraformstate/dev/terraform.tfstate"
     }
   ]
 }
